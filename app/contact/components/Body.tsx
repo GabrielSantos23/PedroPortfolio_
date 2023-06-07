@@ -33,7 +33,7 @@ const Body = () => {
   }
   console.log(contact);
   return (
-    <div className='p-10 flex gap-1 flex-wrap lg:flex-row flex-col-reverse items-center'>
+    <div className='p-10 flex gap-20 flex-wrap lg:flex-row flex-col-reverse items-center'>
       <div>
         <h1 className='text-3xl'>{contact.title[language]}</h1>
         <h2 className={Roboto_Font.className}>{contact.subtitle[language]}</h2>

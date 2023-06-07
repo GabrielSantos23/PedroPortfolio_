@@ -48,7 +48,7 @@ const Body = () => {
             <div className='absolute transition opacity-0  flex items-center bg-white py-3 px-8 drop-shadow-md bottom-14 left-6 group-hover:opacity-100 hover:scale-110'>
               <FaPlay className='text-black' />
             </div>
-            <div className='text-sm max-w-[400px] text-center mt-2 truncate'>
+            <div className='text-sm max-w-[400px] text-center mt-2 truncate group-hover:text-[#ffc93a] transition'>
               {project?.title[language]}
             </div>
             <div className='font-Praktika text-xs max-w-[400px] text-zinc-500 uppercase truncate text-center'>

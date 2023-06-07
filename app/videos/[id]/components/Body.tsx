@@ -7,12 +7,14 @@ import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MyContext } from '@/components/Layout';
 import { Roboto_Font } from '@/components/Fonts';
+import { PortableText } from '@portabletext/react';
 
 const Body = () => {
   const [videoInfo, setVideoInfo] = useState<VideoData | null>(null);
   const params = useParams();
   const id = params.id;
-  const link: string | undefined = videoInfo?.link;
+  const link: string = videoInfo?.link ?? '';
+
   const { language } = useContext(MyContext);
   const [background, setBackground] = useState('');
 
@@ -158,15 +160,9 @@ const Body = () => {
 
   console.log(videoInfo);
   return (
-    <div style={{}}>
+    <div className=' lg:ml-16  mt-16  flex items-center justify-center w-full lg:p-10 '>
       {videoInfo && background && (
         <>
-          {/* <img
-           src={videoInfo.imageUrl}
-           alt='Video Image'
-           width={1280}
-           height={720}
-         /> */}
           <motion.div
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
@@ -177,7 +173,8 @@ const Body = () => {
               src={`https://www.youtube.com/embed/${videoId}`}
               allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
               allowFullScreen
-              className='2xl:w-[980px] 2xl:h-[620px] lg:w-[720px] lg:h-[420px]  md:w-[420px] md:h-[250px] w-[250px] h-[180px]'
+              className='2xl:w-[980px] 2xl:h-[620px] lg:w-[720px] lg:h-[420px]  md:w-[420px] md:h-[250px] sm:w-[350px]
+              w-[300px] h-[180px]'
             />
             <p
               className='font-Praktika font-bold text-lg mb-1 mt-3'
@@ -191,18 +188,44 @@ const Body = () => {
             </p>
             <hr
               style={{ backgroundColor: background }}
-              className={`  w-full border-none h-[1px]`}
+              className={`  l border-none h-[1px]
+              2xl:w-[980px]
+              lg:w-[720px]
+              md:w-[420px]
+              sm:w-[350px]
+              w-[300px]
+              `}
             />
-
-            {/* {about &&
-              about.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className={`${Roboto_Font.className} font-bold mt-5 mb-5 w-2/4 uppercase text-sm `}
-                >
-                  {paragraph.children[0].text}
-                </p>
-              ))} */}
+            <div
+              className={`${Roboto_Font.className}       2xl:w-[980px]
+              lg:w-[720px]
+              md:w-[420px]
+              sm:w-[350px]
+              w-[300px]  
+`}
+            >
+              <PortableText value={videoInfo.about[language]} />
+            </div>
+            <hr
+              style={{ backgroundColor: background }}
+              className={`  l border-none h-[1px]
+              2xl:w-[980px]
+              lg:w-[720px]
+              md:w-[420px]
+              sm:w-[350px]
+              w-[300px]
+              `}
+            />
+            <div
+              className={`${Roboto_Font.className}       2xl:w-[980px]
+              lg:w-[720px]
+              md:w-[420px]
+              sm:w-[350px]
+              w-[300px]  
+`}
+            >
+              <PortableText value={videoInfo.description[language]} />
+            </div>
           </motion.div>
         </>
       )}

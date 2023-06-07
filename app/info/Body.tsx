@@ -48,15 +48,13 @@ const Body = () => {
 
         <div className='mt-4 w-full  lg:w-2/4'>
           <h2>{info?.courses[language]}</h2>
-          {courses && (
+          {Array.isArray(courses) && (
             <ul>
-              {info?.cousesName[language]?.map(
-                (course: string, index: string) => (
-                  <li className={`${Roboto_Font.className}`} key={index}>
-                    - {course}
-                  </li>
-                )
-              )}
+              {courses.map((course: string, index: number) => (
+                <li className={`${Roboto_Font.className}`} key={index}>
+                  - {course}
+                </li>
+              ))}
             </ul>
           )}
         </div>

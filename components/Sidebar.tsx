@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   }
 
   return (
-    <div>
+    <div className='w-full'>
       <div className='sidebar hidden 2xl:w-[500px] lg:w-[300px]  fixed top-0 left-0 h-full lg:flex flex-col justify-center items-end pr-10 '>
         <div>
           <Link href='/'>

@@ -3,7 +3,7 @@ import Body from './components/Body';
 
 const page = () => {
   return (
-    <div>
+    <div className='mt-16'>
       <Body />
     </div>
   );

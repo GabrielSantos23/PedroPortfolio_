@@ -2,6 +2,7 @@
 
 import { createContext, useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
+import MobileSidebar from './MobileSidebar';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -29,6 +30,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     <MyContext.Provider value={{ language }}>
       <div className='h-full flex items-center justify-center overflow-auto overflow-y-auto w-full'>
         <Sidebar toggleLanguage={toggleLanguage} language={language}>
+          <MobileSidebar />
+
           <div className='flex justify-center'>{children}</div>
         </Sidebar>
       </div>

@@ -1,3 +1,5 @@
+import { PortableTextBlock } from 'sanity';
+
 export interface VideoProps {
   title: Record<string, string>;
   link: string;
@@ -77,9 +79,9 @@ export interface ContactProps {
 }
 
 export interface VideoData {
-  about: Record<string, string>;
+  about: Record<string, PortableTextBlock[]>;
   link: string;
-  description: Record<string, string>;
+  description: Record<string, PortableTextBlock[]>;
   title: Record<string, string>;
   _createdAt: string;
   imageUrl: string;
